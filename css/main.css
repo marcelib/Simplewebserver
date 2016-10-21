@@ -1,0 +1,32 @@
+body {
+    background: #f2f2f2;
+}
+
+.main-container {
+    text-align: center;
+}
+
+.background-image {
+    width: 10vw;
+    height: auto;
+}
+
+.mid-image {
+    width: 20vw;
+    height: 20vw;
+}
+
+.top-image-wrapper {
+}
+
+.top-title {
+    font-family: "Segoe UI Light", monospace;
+    font-size: 3vw;
+}
+
+.top-sub-title {
+    font-family: "Segoe UI Light", monospace;
+    font-size: 2vw;
+}
+
+
