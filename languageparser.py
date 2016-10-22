@@ -1,11 +1,15 @@
-def parse(accept_language):
+def parse_language_header(accept_language):
     languages = accept_language.split(',')
-    _return = []
+    result = []
     for language in languages:
-        bits = language.split(';')
-        ietf = bits[0].split('-')
-        _return.append(dict(lang=ietf[0].strip(),
-                            quality=float(bits[1].strip().split('=')[1]) if 1 < len(bits) else 1.0,
-                            region=ietf[1].strip() if 1 < len(ietf) else None))
-    sorted(_return, key=lambda x: x["quality"], reverse=True)
-    return _return
+        values = language.split(';')
+        lang_and_region = values[0].split('-')
+        lang = lang_and_region[0]
+        region = lang_and_region[1] if 1 < len(lang_and_region) else None
+        quality_value = values[1].split('=')[1] if len(values) > 1 else 1.0
+
+        result.append(dict(lang=lang,
+                           quality=quality_value,
+                           region=region))
+    sorted(result, key=lambda x: x["quality"], reverse=True)
+    return result
