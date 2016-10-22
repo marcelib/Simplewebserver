@@ -1,6 +1,6 @@
-from BaseHTTPServer import BaseHTTPRequestHandler
 from os import curdir, sep
-from languageparser import parse_language_header
+from BaseHTTPServer import BaseHTTPRequestHandler
+from languageparser import parse_lang
 
 
 class request_handler(BaseHTTPRequestHandler):
@@ -20,16 +20,11 @@ class request_handler(BaseHTTPRequestHandler):
                 self.send_image = img_flag
 
         def send_reply_or_image(img_flag):
+
             if self.path == '/' or self.path == '/index.html':
-                if parse_language_header(accept_language)[0]['lang'] == 'pl':
-                    print parse_language_header(accept_language)
-                    self.path = 'index_pl.html'
-                else:
-                    self.path = 'index_en.html'
-            if img_flag:
-                f = open(curdir + sep + self.path, "rb")
-            else:
-                f = open(curdir + sep + self.path)
+                self.path = 'index_pl.html' if parse_lang(accept_lang)[0]['lang'] == 'pl' else 'index_en.html'
+
+            f = open(curdir + sep + self.path, "rb") if img_flag else open(curdir + sep + self.path)
             data = f.read()
             self.send_response(200)
             self.send_header('Content-length', len(data))
@@ -38,10 +33,10 @@ class request_handler(BaseHTTPRequestHandler):
             self.wfile.write(data)
             f.close()
 
-        accept_language = self.headers.get('Accept-language')
-        print accept_language
+        accept_lang = self.headers.get('Accept-language')
 
         try:
+            map_response(".txt", "text/plain", False)
             map_response(".html", "text/html", False)
             map_response(".js", "application/javascript", False)
             map_response(".css", "text/css", False)

@@ -1,4 +1,4 @@
-def parse_language_header(accept_language):
+def parse_lang(accept_language):
     languages = accept_language.split(',')
     result = []
     for language in languages:
