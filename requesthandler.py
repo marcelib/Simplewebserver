@@ -1,4 +1,4 @@
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from BaseHTTPServer import BaseHTTPRequestHandler
 from os import curdir, sep
 
 
@@ -13,9 +13,9 @@ class request_handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
 
-        def set_response(end, mimetype, img_flag):
+        def map_response(end, mime_type, img_flag):
             if self.path.endswith(end):
-                self.mime_type = mimetype
+                self.mime_type = mime_type
                 self.send_image = img_flag
 
         def send_reply_or_image(img_flag):
@@ -35,14 +35,14 @@ class request_handler(BaseHTTPRequestHandler):
             self.path = "/index.html"
 
         try:
-            set_response(".html", "text/html", False)
-            set_response(".js", "application/javascript", False)
-            set_response(".css", "text/css", False)
-            set_response(".jpg", "image/jpg", True)
-            set_response(".png", "image/png", True)
-            set_response(".gif", "image/gif", True)
-            set_response(".svg", "image/svg", True)
-            set_response(".ico", "image/x-icon", True)
+            map_response(".html", "text/html", False)
+            map_response(".js", "application/javascript", False)
+            map_response(".css", "text/css", False)
+            map_response(".jpg", "image/jpg", True)
+            map_response(".png", "image/png", True)
+            map_response(".gif", "image/gif", True)
+            map_response(".svg", "image/svg", True)
+            map_response(".ico", "image/x-icon", True)
             send_reply_or_image(self.send_image)
             return
 
