@@ -1,5 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler
 from os import curdir, sep
+from languageparser import parse
 
 
 class request_handler(BaseHTTPRequestHandler):
@@ -19,6 +20,11 @@ class request_handler(BaseHTTPRequestHandler):
                 self.send_image = img_flag
 
         def send_reply_or_image(img_flag):
+            if self.path == '/' or self.path == '/index.html':
+                if parse(accept_language)[0]['lang'] == 'pl':
+                    self.path = 'index_pl.html'
+                else:
+                    self.path = 'index_en.html'
             if img_flag:
                 f = open(curdir + sep + self.path, "rb")
             else:
@@ -31,8 +37,7 @@ class request_handler(BaseHTTPRequestHandler):
             self.wfile.write(data)
             f.close()
 
-        if self.path == "/":
-            self.path = "/index.html"
+        accept_language = self.headers.get('Accept-language')
 
         try:
             map_response(".html", "text/html", False)

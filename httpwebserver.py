@@ -4,8 +4,9 @@ from requesthandler import request_handler
 
 PORT_NUMBER = 8080
 
+server = HTTPServer(('', PORT_NUMBER), request_handler)
+
 try:
-    server = HTTPServer(('', PORT_NUMBER), request_handler)
     print 'Webserver running on port ', PORT_NUMBER
     server.serve_forever()
 
