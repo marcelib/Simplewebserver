@@ -35,6 +35,8 @@ class request_handler(BaseHTTPRequestHandler):
         f.close()
 
     def _process_path_request(self, accept_lang):
+        if (self.path == '/' or self.path == '/index.html') and self.html_version and not accept_lang:
+            self.path = 'index_en.html'
         if (self.path == '/' or self.path == '/index.html') and self.html_version:
             self.path = 'index_pl.html' if parse_lang(accept_lang)[0]['lang'] == 'pl' else 'index_en.html'
         elif not self.html_version:
@@ -46,7 +48,8 @@ class request_handler(BaseHTTPRequestHandler):
         accept = self.headers.get("Accept")
 
         try:
-            self._check_accept_header(parse_accept(accept))
+            if accept:
+                self._check_accept_header(parse_accept(accept))
             self._map_response(".txt", "text/plain", False)
             self._map_response(".html", "text/html", False)
             self._map_response(".js", "application/javascript", False)
