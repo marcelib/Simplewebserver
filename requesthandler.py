@@ -54,7 +54,7 @@ class request_handler(BaseHTTPRequestHandler):
             self._map_response(".jpg", "image/jpg", True)
             self._map_response(".png", "image/png", True)
             self._map_response(".gif", "image/gif", True)
-            self._map_response(".svg", "image/svg", True)
+            self._map_response(".svg", "image/svg+xml", True)
             self._map_response(".ico", "image/x-icon", True)
             self._send_reply_or_image(self.send_image, accept_lang)
             return

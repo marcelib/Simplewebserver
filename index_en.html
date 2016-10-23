@@ -12,23 +12,100 @@
 <body>
 
 <div class="main-content">
+
     <div class="main-container">
         <div class="top-image-wrapper">
-            <img src="img/avatar.jpg" class="background-image" onclick="window.open('http://www.w3schools.com');"
-                 onmouseover="style='cursor: pointer';">
-            <h1 class="top-title">Marceli Baczewski</h1>
-            <h2 class="top-sub-title">A master of disaster.</h2>
+            <header><img src="img/avatar.jpg" class="avatar" onclick="window.open('http://www.w3schools.com');"
+                         onmouseover="style='cursor: pointer';">
+                <h1 class="title">Marceli Baczewski</h1>
+                <h2 class="sub-title">A student, programmer, and a huge skiing fan.</h2></header>
         </div>
         <div class="mid-image-wrapper">
-            <img src="img/badger1.png" class="mid-image">
-            <img src="img/dance2.jpg" class="mid-image">
-            <img src="img/dance3.svg" class="mid-image">
-            <img src="img/dance4.jpg" class="mid-image">
+            <h1>Certificates earned:</h1>
+            <img src="img/diploma.png" class="mid-image">
+            <img src="img/cae.jpg" class="mid-image">
+            <img src="img/special_forces.svg" class="mid-image">
         </div>
     </div>
-    <div class="main-container">
-        <h1 class="top-title">My achievements:</h1>
-        <h2 class="top-sub-title">So far so good.</h2>
+
+    <div class="text-container">
+        <h1 class="title">History of Saxons:</h1>
+
+        <p>
+            1066 In this year the monastery at <b>Westminster</b> was hallowed on
+            <u>Childermas day (28 December)</u>. And king Eadward died on Twelfth-mass eve (5 January) and he was buried
+            on
+            Twelfth-mass day, in the newly hallowed church at Westminster. And earl Harold succeeded to the Kingdom of
+            England, as the king had granted it to him and men had also chosen him thereto and he was blessed as king on
+            Twelfth-mass day.
+        </p>
+
+        <p>
+            And
+            the while count <b>William landed at Hastings</b>, on St. Michael's mass-day and Harold came from the north and
+            fought
+            against him before his army had all come and there he fell and his two brothers Gyrth and Leofwine and
+            William
+            subdued this land, and came to Westminster and archbishop <u>Ealdred hallowed him king</u>, and men paid him tribute
+            and gave him hostages and afterwards bought their land.
+        </p>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Views</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>2015</td>
+            <td>January</td>
+            <td>259 850</td>
+        </tr>
+
+        <tr>
+            <td>2015</td>
+            <td>September</td>
+            <td>450 625</td>
+        </tr>
+
+        <tr>
+            <td>2016</td>
+            <td>October</td>
+            <td>500 221</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="form-container">
+        <form id="contact_form">
+            <h3 class="title">Contact me!</h3>
+            <div class="row">
+                <label for="name">Your name:</label><br/>
+                <input id="name" class="input" name="name" type="text" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="email">Your email:</label><br/>
+                <input id="email" class="input" name="email" type="text" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="website">Website:</label><br/>
+                <input id="website" class="input" name="email" type="text" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="date">Date of birth:</label><br/>
+                <input id="date" type="date" class="input" name="email" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="message">Your message:</label><br/>
+                <textarea id="message" class="input" name="message" rows="7" cols="35"></textarea><br/>
+            </div>
+            <input id="submit_button" type="submit" value="Send email"/>
+        </form>
     </div>
 </div>
 </body>

@@ -12,23 +12,97 @@
 <body>
 
 <div class="main-content">
+
     <div class="main-container">
         <div class="top-image-wrapper">
-            <img src="img/avatar.jpg" class="background-image" onclick="window.open('http://www.w3schools.com');"
-                 onmouseover="style='cursor: pointer';">
-            <h1 class="top-title">Marceli Baczewski</h1>
-            <h2 class="top-sub-title">Student, programista, narciarz.</h2>
+            <header><img src="img/avatar.jpg" class="avatar" onclick="window.open('http://www.w3schools.com');"
+                         onmouseover="style='cursor: pointer';">
+                <h1 class="title">Marceli Baczewski</h1>
+                <h2 class="sub-title">Student, programista, narciarz.</h2></header>
         </div>
         <div class="mid-image-wrapper">
-            <img src="img/badger1.png" class="mid-image">
-            <img src="img/dance2.jpg" class="mid-image">
-            <img src="img/dance3.svg" class="mid-image">
-            <img src="img/dance4.jpg" class="mid-image">
+            <h1>Zdobyte certyfikaty:</h1>
+            <img src="img/diploma.png" class="mid-image">
+            <img src="img/cae.jpg" class="mid-image">
+            <img src="img/special_forces.svg" class="mid-image">
         </div>
     </div>
-    <div class="main-container">
-        <h1 class="top-title">Moje osiągnięcia:</h1>
-        <h2 class="top-sub-title">Jak na razie nie popsułem zbyt wiele.</h2>
+
+    <div class="text-container">
+        <h1 class="title">Historia saksonii:</h1>
+
+        <p>Po wygaśnięciu dynastii askańskiej w 1423, <b>Elektorat Saksonii</b> został nadany jako lenno Margrabiom Miśnii z
+            dynastii Wettynów, którzy przenieśli swoją siedzibę nad Łabę, do Drezna.
+
+            Powstało silne państwo, obejmujące Saksonię, Turyngię (której obszar Wettynowie opanowali w 1264 roku) oraz
+            Saksonię-Anhalt, którego władcy byli elektorami.
+        </p>
+
+        <p>
+            W 1485 roku dynastia <b>Wettynów</b> podzieliła się na dwie linie (ernestyńską, która zachowała prawa elektorskie,
+            i
+            albertyńską). Spowodowało to oddzielenie obecnej Turyngii od reszty państwa. Mimo to znaczenie rządzonej
+            przez
+            linię albertyńską zmniejszonej Saksonii wzrosło, zwłaszcza po odzyskaniu w 1547 roku praw elektorskich. W
+            roku
+            1635 Saksonia wzmocniła się o Łużyce. W latach 1697-1763 kraj pozostawał w unii personalnej z <u>Polską</u>.
+    </div>
+
+    <table class="pure-table">
+        <thead>
+        <tr>
+            <th>Rok</th>
+            <th>Miesiąc</th>
+            <th>Wyświetlenia</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>2015</td>
+            <td>Styczeń</td>
+            <td>259 850</td>
+        </tr>
+
+        <tr>
+            <td>2015</td>
+            <td>Wrzesień</td>
+            <td>450 625</td>
+        </tr>
+
+        <tr>
+            <td>2016</td>
+            <td>Październik</td>
+            <td>500 221</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="form-container">
+        <form id="contact_form">
+            <h3 class="title">Skontaktuj się ze mną!</h3>
+            <div class="row">
+                <label for="name">Imię:</label><br/>
+                <input id="name" class="input" name="name" type="text" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="email">E-mail:</label><br/>
+                <input id="email" class="input" name="email" type="text" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="website">Strona internetowa:</label><br/>
+                <input id="website" class="input" name="email" type="text" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="date">Data urodzenia:</label><br/>
+                <input id="date" type="date" class="input" name="email" value="" size="35"/><br/>
+            </div>
+            <div class="row">
+                <label for="message">Wiadomość:</label><br/>
+                <textarea id="message" class="input" name="message" rows="7" cols="35"></textarea><br/>
+            </div>
+            <input id="submit_button" type="submit" value="Wyślij emaila"/>
+        </form>
     </div>
 </div>
 </body>
