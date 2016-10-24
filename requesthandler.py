@@ -23,8 +23,7 @@ class request_handler(BaseHTTPRequestHandler):
             self.mime_type = mime_type
             self.send_image = img_flag
 
-    def _send_reply_or_image(self, img_flag, accept_lang):
-        self._process_path_request(accept_lang)
+    def _send_reply_or_image(self, img_flag):
         f = open(curdir + sep + self.path, "rb") if img_flag else open(curdir + sep + self.path)
         data = f.read()
         self.send_response(200)
@@ -50,6 +49,7 @@ class request_handler(BaseHTTPRequestHandler):
         try:
             if accept:
                 self._check_accept_header(parse_accept(accept))
+            self._process_path_request(accept_lang)
             self._map_response(".txt", "text/plain", False)
             self._map_response(".html", "text/html", False)
             self._map_response(".js", "application/javascript", False)
@@ -59,7 +59,7 @@ class request_handler(BaseHTTPRequestHandler):
             self._map_response(".gif", "image/gif", True)
             self._map_response(".svg", "image/svg+xml", True)
             self._map_response(".ico", "image/x-icon", True)
-            self._send_reply_or_image(self.send_image, accept_lang)
+            self._send_reply_or_image(self.send_image)
             return
 
         except IOError:
